@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -36,12 +36,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 5%;display:flex
 .hero-bg2{position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(217,92,40,0.12) 0%,transparent 70%);pointer-events:none}
 .hero-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:28px;display:flex;align-items:center;gap:10px}
 .hero-label:before{content:'';width:24px;height:1px;background:var(--orange);flex-shrink:0}
-.hero-main-row{display:flex;align-items:center;justify-content:space-between;gap:40px}
-.hero-left{flex:1;min-width:0}
-.hero-h1{font-family:'Syne',sans-serif;font-weight:800;line-height:1.0;letter-spacing:-1.5px;color:var(--cream);font-size:clamp(36px,9vw,88px);margin-bottom:20px}
+.hero-main-row{display:flex;flex-direction:column;gap:32px}
+.hero-postits{flex:none;width:100%;height:240px;display:flex;justify-content:center}
+.hero-h1{font-family:'Syne',sans-serif;font-weight:800;line-height:1.05;letter-spacing:-1px;color:var(--cream);font-size:clamp(36px,11vw,88px);margin-bottom:20px}
 .hero-outline{-webkit-text-stroke:1px var(--cream);color:transparent;font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;letter-spacing:-1px}
 .hero-orange{color:var(--orange);font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;letter-spacing:-1px}
-.hero-desc{color:rgba(245,240,232,0.55);font-weight:300;line-height:1.75;margin-bottom:32px;font-size:clamp(14px,3.5vw,17px);max-width:420px}
+.hero-desc{color:rgba(245,240,232,0.55);font-weight:300;line-height:1.75;margin-bottom:32px;font-size:15px;max-width:420px}
 .hero-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .btn-main{background:var(--orange);color:#fff;padding:16px 28px;border-radius:4px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.8px;text-transform:uppercase;display:inline-block;transition:background .2s}
 .btn-main:hover{background:#bf4e20}
@@ -150,9 +150,14 @@ footer p{font-size:12px;color:rgba(245,240,232,0.25)}
 .rv.in{opacity:1;transform:none}
 
 /* DESKTOP */
-@media(min-width:768px){
+  @media(min-width:768px){
   nav{padding:20px 6%}
   .hero{padding:140px 6% 80px}
+  .hero-main-row{flex-direction:row;align-items:center;justify-content:space-between;gap:40px}
+  .hero-left{flex:1;min-width:0}
+  .hero-postits{flex:0 0 320px;height:360px;width:320px}
+  .hero-h1{font-size:clamp(40px,7vw,88px)}
+  .hero-desc{font-size:17px}
   .hero-actions{align-items:flex-end}
   .about{padding:100px 6%}
   .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
@@ -209,47 +214,7 @@ footer p{font-size:12px;color:rgba(245,240,232,0.25)}
         <span class="hero-scroll">scroll para explorar ↓</span>
       </div>
     </div>
-    <div class="hero-postits">
-      <svg width="100%" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" style="max-width:320px;margin:0 auto;display:block">
-        <defs>
-          <filter id="sh"><feDropShadow dx="2" dy="4" stdDeviation="7" flood-color="rgba(0,0,0,0.3)"/></filter>
-          <filter id="sh2"><feDropShadow dx="1" dy="3" stdDeviation="5" flood-color="rgba(0,0,0,0.22)"/></filter>
-          <filter id="tf"><feGaussianBlur stdDeviation="0.4"/></filter>
-        </defs>
-        <rect x="288" y="28" width="12" height="100" rx="5" fill="#D95C28" opacity="0.6" transform="rotate(10,294,78)"/>
-        <rect x="306" y="38" width="7" height="82" rx="4" fill="#D95C28" opacity="0.4" transform="rotate(13,310,79)"/>
-        <g transform="rotate(-3,82,120)" filter="url(#sh2)">
-          <rect x="10" y="55" width="140" height="130" rx="3" fill="#C4AADF"/>
-          <path d="M142,175 L122,195 L142,195 Z" fill="#A888CC"/>
-          <text x="28" y="92" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.85">visión</text>
-          <text x="28" y="112" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.85">estructura</text>
-          <text x="28" y="132" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.85">claridad</text>
-        </g>
-        <g transform="rotate(2,200,175)" filter="url(#sh)">
-          <rect x="88" y="58" width="205" height="210" rx="3" fill="#E8D8B0"/>
-          <path d="M293,268 L268,268 L293,243 Z" fill="#C8B888"/>
-          <rect x="168" y="46" width="54" height="18" rx="2" fill="rgba(240,228,185,0.55)" filter="url(#tf)"/>
-          <text x="108" y="102" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.8">✓  ideas</text>
-          <text x="108" y="124" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.8">✓  plan</text>
-          <text x="108" y="146" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.8">✓  proyecto</text>
-          <text x="108" y="168" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.8">✓  caos</text>
-          <path d="M234,175 Q258,195 244,220" stroke="#2A1040" stroke-width="1.2" fill="none" opacity="0.35" stroke-linecap="round"/>
-          <polygon points="239,218 249,228 254,214" fill="#2A1040" opacity="0.35"/>
-          <ellipse cx="215" cy="240" rx="50" ry="24" fill="none" stroke="#D95C28" stroke-width="1.8" opacity="0.9"/>
-          <text x="215" y="237" font-family="Georgia,serif" font-style="italic" font-size="12" fill="#D95C28" text-anchor="middle">dirección</text>
-          <text x="215" y="251" font-family="Georgia,serif" font-style="italic" font-size="12" fill="#D95C28" text-anchor="middle">acción</text>
-        </g>
-        <g transform="rotate(2,90,295)" filter="url(#sh2)">
-          <rect x="14" y="228" width="148" height="140" rx="3" fill="#7048B0"/>
-          <path d="M162,368 L142,368 L162,348 Z" fill="#5530A0"/>
-          <text x="30" y="266" font-family="Georgia,serif" font-style="italic" font-size="13" fill="rgba(255,255,255,0.88)">acompañamiento</text>
-          <text x="30" y="286" font-family="Georgia,serif" font-style="italic" font-size="13" fill="rgba(255,255,255,0.88)">pensamiento</text>
-          <text x="30" y="306" font-family="Georgia,serif" font-style="italic" font-size="13" fill="rgba(255,255,255,0.88)">orden</text>
-          <text x="30" y="326" font-family="Georgia,serif" font-style="italic" font-size="13" fill="rgba(255,255,255,0.88)">dirección</text>
-          <text x="96" y="358" font-family="serif" font-size="14" fill="rgba(255,255,255,0.3)" text-anchor="middle">✦</text>
-        </g>
-      </svg>
-    </div>
+
   </div>
   <div class="ticker-wrap">
     <div class="ticker-inner">
