@@ -17,20 +17,18 @@
   --dark:#1A1018;
   --dark2:#241B30;
   --muted:#8A7A6E;
-  --white:#FDFAF5;
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(42,21,96,0.95);backdrop-filter:blur(8px)}
-.logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--cream);letter-spacing:-0.5px;text-decoration:none}
-.logo em{font-style:italic;font-family:'DM Serif Display',serif;color:var(--orange)}
-.nav-links{display:flex;gap:24px;align-items:center}
+.logo a{text-decoration:none;display:block}
+.logo img{height:36px;width:auto;display:block}
+.nav-links{display:flex;gap:20px;align-items:center}
 .nav-links a{text-decoration:none;color:rgba(245,240,232,0.55);font-size:13px;transition:color .2s}
 .nav-links a:hover{color:var(--cream)}
 .nav-cta{background:var(--cream);color:var(--dark) !important;padding:9px 18px;border-radius:40px;font-weight:600 !important;font-size:12px !important}
-.nav-menu-links{display:flex;gap:20px}
 
 /* HERO */
 .hero{min-height:100svh;padding:100px 5% 60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:var(--violet)}
@@ -38,15 +36,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 5%;display:flex
 .hero-bg2{position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(217,92,40,0.12) 0%,transparent 70%);pointer-events:none}
 .hero-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:28px;display:flex;align-items:center;gap:10px}
 .hero-label:before{content:'';width:24px;height:1px;background:var(--orange);flex-shrink:0}
-.hero-h1{font-family:'Syne',sans-serif;font-weight:800;line-height:1.0;letter-spacing:-1.5px;color:var(--cream);margin-bottom:20px}
+.hero-main-row{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.hero-left{flex:1;min-width:0}
+.hero-h1{font-family:'Syne',sans-serif;font-weight:800;line-height:1.0;letter-spacing:-1.5px;color:var(--cream);font-size:clamp(36px,9vw,88px);margin-bottom:20px}
 .hero-outline{-webkit-text-stroke:1px var(--cream);color:transparent;font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;letter-spacing:-1px}
 .hero-orange{color:var(--orange);font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;letter-spacing:-1px}
-.hero-desc{color:rgba(245,240,232,0.55);font-weight:300;line-height:1.75;margin-bottom:32px}
+.hero-desc{color:rgba(245,240,232,0.55);font-weight:300;line-height:1.75;margin-bottom:32px;font-size:clamp(14px,3.5vw,17px);max-width:420px}
 .hero-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .btn-main{background:var(--orange);color:#fff;padding:16px 28px;border-radius:4px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.8px;text-transform:uppercase;display:inline-block;transition:background .2s}
 .btn-main:hover{background:#bf4e20}
 .hero-scroll{font-size:11px;color:rgba(245,240,232,0.3);letter-spacing:2px;text-transform:uppercase}
-.hero-postits{margin-bottom:32px;position:relative;height:260px}
+.hero-postits{flex:0 0 320px;position:relative;height:360px}
 
 /* TICKER */
 .ticker-wrap{background:var(--violet);padding:12px 0;overflow:hidden;white-space:nowrap;border-top:1px solid rgba(245,240,232,0.06)}
@@ -61,181 +61,132 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 5%;display:flex
 .band-inner span{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);padding:0 16px}
 .band-inner .dot{color:rgba(255,255,255,0.3);padding:0 4px}
 
-/* SECTIONS base */
-section{padding:72px 5%}
+/* TAGS */
 .s-tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .s-tag:before{content:'';width:20px;height:1px;background:var(--orange);flex-shrink:0}
 .s-tag-muted{color:var(--muted)}
 .s-tag-muted:before{background:var(--muted)}
-.s-h2{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-1.5px;line-height:1.0;color:var(--cream)}
-.s-h2-dark{color:var(--dark)}
-.s-h2 em,.s-h2-dark em{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400}
-.s-h2 em{color:var(--violet-light)}
-.s-h2-dark em{color:var(--violet)}
+.s-h2{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-1.5px;line-height:1.0}
+.s-h2 em{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:var(--violet-light)}
+.s-h2-dark{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-1.5px;line-height:1.0;color:var(--dark)}
+.s-h2-dark em{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:var(--violet)}
 
-/* ABOUT */
-.about{background:var(--cream)}
-.about-text p{font-size:16px;color:#5A4A3E;font-weight:300;line-height:1.85;margin-bottom:18px}
-.about-text strong{color:var(--dark);font-weight:500}
-.about-quote{margin-top:32px;padding:28px 24px;background:var(--dark);border-radius:4px;position:relative}
-.about-quote p{font-family:'DM Serif Display',serif;font-size:19px;font-style:italic;color:var(--cream);line-height:1.4}
-.about-quote:before{content:'"';position:absolute;top:-16px;left:20px;font-family:'DM Serif Display',serif;font-size:64px;color:var(--orange);line-height:1}
-.about-nums{display:flex;gap:32px;margin-top:32px}
-.num-item span{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;color:var(--violet);letter-spacing:-2px;display:block;line-height:1}
-.num-item p{font-size:12px;color:var(--muted);margin-top:3px;font-weight:300}
+/* 1. QUÉ ES */
+.about{background:var(--cream);padding:72px 5%}
+.about-inner{display:flex;flex-direction:column;gap:40px}
+.about-quote-block{background:var(--dark);border-radius:4px;padding:28px 24px;position:relative;margin-top:8px}
+.about-quote-block p{font-family:'DM Serif Display',serif;font-size:19px;font-style:italic;color:var(--cream);line-height:1.5}
+.about-quote-block:before{content:'"';position:absolute;top:-16px;left:20px;font-family:'DM Serif Display',serif;font-size:64px;color:var(--orange);line-height:1}
 
-/* IMAGEN */
-.img-section{background:var(--cream2)}
+/* 2. SESIÓN + PROCESO */
+.sesion{background:var(--dark2);padding:72px 5%}
+.sesion-steps{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.sesion-step{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(245,240,232,0.07);align-items:start}
+.sesion-step:last-child{border-bottom:none}
+.step-n{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:rgba(245,240,232,0.07);line-height:1}
+.step-bar{width:22px;height:3px;border-radius:2px;background:var(--orange);margin-bottom:8px}
+.sesion-step:nth-child(even) .step-bar{background:var(--violet-light)}
+.step-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--cream);letter-spacing:-0.3px;margin-bottom:4px}
+.step-desc{font-size:13px;color:rgba(245,240,232,0.4);font-weight:300;line-height:1.65}
+
+/* 3. IMAGEN */
+.img-section{background:var(--cream2);padding:0}
 .img-section-inner{display:flex;flex-direction:column}
 .img-text{padding:56px 5% 40px}
 .img-text h3{font-family:'Syne',sans-serif;font-size:clamp(26px,6vw,44px);font-weight:800;color:var(--dark);letter-spacing:-1.5px;line-height:1.05;margin-bottom:16px}
 .img-text h3 em{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:var(--violet)}
 .img-text p{font-size:15px;color:var(--muted);font-weight:300;line-height:1.8}
 .img-nums{display:flex;gap:28px;margin-top:24px}
-.img-photo{position:relative;overflow:hidden;min-height:280px;max-height:400px}
+.num-item span{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;letter-spacing:-2px;display:block;line-height:1}
+.num-item p{font-size:12px;color:var(--muted);margin-top:3px;font-weight:300}
+.img-photo{position:relative;overflow:hidden;min-height:260px;max-height:380px}
 .img-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.93) saturate(0.88)}
 .img-caption{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(26,16,24,0.82);backdrop-filter:blur(6px);border-radius:4px;padding:14px 16px}
 .img-caption p{font-family:'DM Serif Display',serif;font-style:italic;font-size:13px;color:var(--cream);line-height:1.5}
 
-/* SESIÓN */
-.sesion{background:var(--dark2)}
-.sesion-desc{font-size:15px;color:rgba(245,240,232,0.5);font-weight:300;line-height:1.8;margin-top:10px;margin-bottom:32px}
-.sesion-right p{font-size:15px;color:rgba(245,240,232,0.6);font-weight:300;line-height:1.85;margin-bottom:16px}
-.sesion-right strong{color:var(--cream);font-weight:500}
-.sesion-lista{list-style:none;margin:12px 0 28px}
-.sesion-lista li{font-size:14px;color:rgba(245,240,232,0.55);font-weight:300;line-height:1.8;padding-left:18px;position:relative;margin-bottom:4px}
-.sesion-lista li:before{content:'→';position:absolute;left:0;color:var(--orange);font-size:12px;top:2px}
-.paths{display:flex;flex-direction:column;gap:12px;margin-top:32px}
-.path-card{background:rgba(245,240,232,0.04);border:1px solid rgba(245,240,232,0.08);border-radius:4px;padding:24px 20px;display:flex;gap:16px;align-items:flex-start}
-.path-icon{font-size:20px;flex-shrink:0;margin-top:2px}
-.path-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--cream);letter-spacing:-0.3px;margin-bottom:6px}
-.path-desc{font-size:13px;color:rgba(245,240,232,0.4);font-weight:300;line-height:1.65}
+/* 4. CAMINOS */
+.paths-section{background:var(--dark);padding:72px 5%}
+.paths{display:flex;flex-direction:column;gap:12px;margin-top:36px}
+.path-card{background:rgba(245,240,232,0.04);border:1px solid rgba(245,240,232,0.08);border-radius:4px;padding:28px 24px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s}
+.path-card:hover{border-color:rgba(139,108,200,0.3)}
+.path-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.path-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--cream);letter-spacing:-0.3px;margin-bottom:6px}
+.path-desc{font-size:14px;color:rgba(245,240,232,0.45);font-weight:300;line-height:1.65}
 
-/* SITUACIONES */
-.services{background:var(--dark)}
-.s-intro{font-size:15px;color:rgba(245,240,232,0.45);font-weight:300;line-height:1.75;margin-top:8px;margin-bottom:40px;max-width:480px}
-.s-list{display:flex;flex-direction:column}
-.s-item{padding:24px 0;border-bottom:1px solid rgba(245,240,232,0.07);display:flex;flex-direction:column;gap:6px}
-.s-item:first-child{border-top:1px solid rgba(245,240,232,0.07)}
-.s-item-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;color:rgba(245,240,232,0.2);letter-spacing:2px}
-.s-item-pill{display:inline-block;align-self:flex-start;background:rgba(245,240,232,0.06);color:rgba(245,240,232,0.35);padding:4px 12px;border-radius:40px;font-size:11px;font-weight:500}
-.s-item-name{font-family:'Syne',sans-serif;font-size:clamp(17px,4vw,26px);font-weight:700;color:var(--cream);letter-spacing:-0.5px;line-height:1.2}
-.s-item-desc{font-size:14px;color:rgba(245,240,232,0.4);line-height:1.65;font-weight:300}
-.s-footer{margin-top:40px;padding-top:32px;border-top:1px solid rgba(245,240,232,0.07)}
-.s-footer p{font-family:'DM Serif Display',serif;font-size:18px;font-style:italic;color:rgba(245,240,232,0.45);line-height:1.6}
-.s-footer p em{color:var(--cream)}
-
-/* PROCESO */
-.method{background:var(--cream2)}
-.method-sub{font-size:15px;color:var(--muted);font-weight:300;line-height:1.75;margin-top:8px;margin-bottom:40px}
-.m-steps{display:flex;flex-direction:column;gap:0}
-.m-step{padding:24px 0;border-bottom:1px solid rgba(26,16,24,0.08);display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
-.m-step:last-child{border-bottom:none}
-.m-num{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:rgba(26,16,24,0.08);line-height:1}
-.m-content{}
-.m-bar{width:24px;height:3px;border-radius:2px;background:var(--orange);margin-bottom:10px}
-.m-step:nth-child(even) .m-bar{background:var(--violet)}
-.m-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--dark);letter-spacing:-0.3px;margin-bottom:6px}
-.m-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300}
-
-/* FOR WHO */
-.forwhom{background:var(--dark2)}
-.fw-sub{font-size:15px;color:rgba(245,240,232,0.45);max-width:480px;margin-top:8px;margin-bottom:32px;font-weight:300;line-height:1.8}
-.fw-cards{display:flex;flex-direction:column;gap:2px}
-.fw-card{background:rgba(245,240,232,0.04);padding:24px 20px;border:1px solid rgba(245,240,232,0.05);display:flex;gap:14px;align-items:flex-start;cursor:pointer;transition:background .2s,border-color .2s}
+/* 5. PARA QUIÉN */
+.forwhom{background:var(--dark2);padding:72px 5%}
+.fw-cards{display:flex;flex-direction:column;gap:2px;margin-top:36px;margin-bottom:56px}
+.fw-card{background:rgba(245,240,232,0.04);padding:22px 20px;border:1px solid rgba(245,240,232,0.05);display:flex;gap:14px;align-items:flex-start;cursor:pointer;transition:background .2s,border-color .2s}
 .fw-card:hover,.fw-card.on{background:rgba(96,64,168,0.22);border-color:rgba(139,108,200,0.28)}
-.fw-card-mark{font-size:22px;flex-shrink:0;margin-top:2px}
-.fw-card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--cream);margin-bottom:5px;letter-spacing:-0.2px;line-height:1.3}
+.fw-card-mark{font-size:20px;flex-shrink:0;margin-top:2px}
+.fw-card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--cream);margin-bottom:3px;letter-spacing:-0.2px;line-height:1.2}
 .fw-card-desc{font-size:13px;color:rgba(245,240,232,0.4);line-height:1.6;font-weight:300}
+.pills-block{border-top:1px solid rgba(245,240,232,0.07);padding-top:40px}
+.pills-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(245,240,232,0.3);margin-bottom:18px}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{padding:8px 18px;border-radius:40px;border:1px solid rgba(245,240,232,0.12);font-size:13px;color:rgba(245,240,232,0.5);font-weight:400}
+.pill-v{border-color:rgba(139,108,200,0.3);color:var(--violet-light)}
+.pill-o{border-color:rgba(217,92,40,0.3);color:#E8855A}
 
 /* CTA */
 .cta{background:var(--orange);padding:80px 5%;position:relative;overflow:hidden}
-.cta:before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(255,255,255,0.1)}
-.cta:after{content:'';position:absolute;bottom:-40px;left:20%;width:200px;height:200px;border-radius:50%;border:1px solid rgba(255,255,255,0.07)}
+.cta:before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);pointer-events:none}
 .cta-inner{position:relative;z-index:1}
 .cta-tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .cta-tag:before{content:'';width:20px;height:1px;background:rgba(255,255,255,0.4);flex-shrink:0}
-.cta h2{font-family:'Syne',sans-serif;font-weight:800;color:#fff;letter-spacing:-2px;line-height:0.95;margin-bottom:20px}
+.cta h2{font-family:'Syne',sans-serif;font-weight:800;color:#fff;letter-spacing:-2px;line-height:0.95;margin-bottom:20px;font-size:clamp(40px,10vw,96px)}
 .cta h2 em{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:rgba(255,255,255,0.65)}
-.cta-desc{font-size:15px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.75;margin-bottom:32px}
+.cta-desc{font-size:15px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.75;margin-bottom:32px;max-width:420px}
 .btn-dark{background:var(--dark);color:var(--cream);padding:16px 28px;border-radius:4px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.8px;text-transform:uppercase;display:inline-block;width:100%;text-align:center}
 .cta-mail{margin-top:16px;font-size:13px;color:rgba(255,255,255,0.35);text-align:center}
 
 /* FOOTER */
 footer{background:var(--dark);padding:36px 5%;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(245,240,232,0.06)}
-.f-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--cream);letter-spacing:-0.5px}
-.f-logo em{font-style:italic;font-family:'DM Serif Display',serif;color:var(--orange)}
+.f-logo img{height:28px;width:auto;display:block}
 footer p{font-size:12px;color:rgba(245,240,232,0.25)}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
 
-/* =====================
-   DESKTOP overrides
-   ===================== */
+/* DESKTOP */
 @media(min-width:768px){
   nav{padding:20px 6%}
-  .logo{font-size:20px}
-  .nav-links a{font-size:13px}
-
   .hero{padding:140px 6% 80px}
-  .hero-label{font-size:11px}
-  .hero-main-row{display:flex;align-items:center;justify-content:space-between;gap:40px}
-  .hero-left{flex:1;min-width:0}
-  .hero-postits{margin-bottom:0;flex:0 0 340px;height:380px}
-  .hero-actions{flex-direction:column;align-items:flex-end}
-  .hero-scroll{display:block}
-
-  section{padding:100px 6%}
-
-  .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:start}
-  .about-left{padding-right:72px;border-right:1px solid rgba(26,16,24,0.1);padding-bottom:0}
-  .about-right{padding-left:72px;padding-top:60px}
-
-  .img-section-inner{flex-direction:row;min-height:520px}
+  .hero-actions{align-items:flex-end}
+  .about{padding:100px 6%}
+  .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+  .sesion{padding:100px 6%}
+  .sesion-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+  .sesion-step{display:block;padding:0 28px;border-bottom:none;border-left:1px solid rgba(245,240,232,0.08)}
+  .sesion-step:first-child{border-left:none;padding-left:0}
+  .step-n{font-size:48px;margin-bottom:16px}
+  .img-section-inner{flex-direction:row;min-height:500px}
   .img-text{flex:1;padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
   .img-photo{flex:1;min-height:100%;max-height:none}
-
-  .sesion-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-bottom:48px}
+  .paths-section{padding:100px 6%}
   .paths{flex-direction:row;gap:16px}
   .path-card{flex-direction:column;gap:0}
   .path-icon{margin-bottom:16px;margin-top:0}
-
-  .s-list .s-item{flex-direction:row;display:grid;grid-template-columns:72px 1fr 1fr 80px;align-items:center;gap:0;padding:32px 0}
-  .s-item-top{display:contents}
-  .s-item-name{font-size:clamp(20px,2.5vw,32px)}
-  .s-item-desc{padding:0 32px;font-size:14px}
-  .s-item-pill{text-align:right}
-
-  .m-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
-  .m-step{padding:36px 28px;border-bottom:none;border-left:1px solid rgba(26,16,24,0.1);grid-template-columns:1fr;display:block}
-  .m-step:first-child{border-left:none}
-  .m-num{font-size:52px;margin-bottom:16px}
-
-  .fw-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px}
+  .forwhom{padding:100px 6%}
+  .fw-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
   .fw-card{flex-direction:column;gap:0}
-  .fw-card-mark{margin-bottom:16px;margin-top:0}
-
+  .fw-card-mark{margin-bottom:14px;margin-top:0}
   .cta{padding:120px 6%}
   .btn-dark{width:auto;text-align:left}
   .cta-mail{text-align:left}
-
   footer{flex-direction:row;justify-content:space-between;align-items:center;padding:48px 6%}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="logo">bruma <em>lab</em></a>
+  <div class="logo"><a href="#"><img src="/logo-bruma.svg" alt="BRUMA lab"/></a></div>
   <div class="nav-links">
-    <div class="nav-menu-links">
-      <a href="#about">Qué es</a>
-      <a href="#services">Situaciones</a>
-      <a href="#method">Proceso</a>
-    </div>
+    <a href="#about">Qué es</a>
+    <a href="#sesion">Sesión</a>
+    <a href="#forwhom">Para quién</a>
     <a href="#contact" class="nav-cta">Empecemos</a>
   </div>
 </nav>
@@ -247,28 +198,26 @@ footer p{font-size:12px;color:rgba(245,240,232,0.25)}
   <div class="hero-label">claridad estratégica · buenos aires</div>
   <div class="hero-main-row">
     <div class="hero-left">
-      <div class="hero-h1" style="font-size:clamp(36px,9vw,88px)">
+      <div class="hero-h1">
         <div>Cursos hay muchos.</div>
         <div class="hero-outline" style="font-size:clamp(36px,9vw,88px)">Pero nadie ordena</div>
         <div class="hero-orange" style="font-size:clamp(36px,9vw,88px)">el caos por vos.</div>
       </div>
-      <p class="hero-desc" style="font-size:clamp(14px,3.5vw,17px);max-width:420px;margin-top:20px">Te ayudamos a ordenar ideas, estructurar proyectos y encontrar dirección cuando todo parece demasiado.</p>
-      <div class="hero-actions" style="margin-top:0">
+      <p class="hero-desc">Te ayudamos a ordenar ideas, estructurar proyectos y encontrar dirección cuando todo parece demasiado.</p>
+      <div class="hero-actions">
         <a href="mailto:bruma.labstudio@gmail.com" class="btn-main">Contanos tu idea</a>
         <span class="hero-scroll">scroll para explorar ↓</span>
       </div>
     </div>
     <div class="hero-postits">
-      <svg width="100%" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" style="max-width:340px;margin:0 auto;display:block">
+      <svg width="100%" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" style="max-width:320px;margin:0 auto;display:block">
         <defs>
           <filter id="sh"><feDropShadow dx="2" dy="4" stdDeviation="7" flood-color="rgba(0,0,0,0.3)"/></filter>
           <filter id="sh2"><feDropShadow dx="1" dy="3" stdDeviation="5" flood-color="rgba(0,0,0,0.22)"/></filter>
-          <filter id="tape-f"><feGaussianBlur stdDeviation="0.4"/></filter>
+          <filter id="tf"><feGaussianBlur stdDeviation="0.4"/></filter>
         </defs>
-        <!-- brush -->
         <rect x="288" y="28" width="12" height="100" rx="5" fill="#D95C28" opacity="0.6" transform="rotate(10,294,78)"/>
         <rect x="306" y="38" width="7" height="82" rx="4" fill="#D95C28" opacity="0.4" transform="rotate(13,310,79)"/>
-        <!-- lavanda -->
         <g transform="rotate(-3,82,120)" filter="url(#sh2)">
           <rect x="10" y="55" width="140" height="130" rx="3" fill="#C4AADF"/>
           <path d="M142,175 L122,195 L142,195 Z" fill="#A888CC"/>
@@ -276,11 +225,10 @@ footer p{font-size:12px;color:rgba(245,240,232,0.25)}
           <text x="28" y="112" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.85">estructura</text>
           <text x="28" y="132" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.85">claridad</text>
         </g>
-        <!-- kraft -->
         <g transform="rotate(2,200,175)" filter="url(#sh)">
           <rect x="88" y="58" width="205" height="210" rx="3" fill="#E8D8B0"/>
           <path d="M293,268 L268,268 L293,243 Z" fill="#C8B888"/>
-          <rect x="168" y="46" width="54" height="18" rx="2" fill="rgba(240,228,185,0.55)" filter="url(#tape-f)"/>
+          <rect x="168" y="46" width="54" height="18" rx="2" fill="rgba(240,228,185,0.55)" filter="url(#tf)"/>
           <text x="108" y="102" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.8">✓  ideas</text>
           <text x="108" y="124" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.8">✓  plan</text>
           <text x="108" y="146" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#2A1040" opacity="0.8">✓  proyecto</text>
@@ -291,7 +239,6 @@ footer p{font-size:12px;color:rgba(245,240,232,0.25)}
           <text x="215" y="237" font-family="Georgia,serif" font-style="italic" font-size="12" fill="#D95C28" text-anchor="middle">dirección</text>
           <text x="215" y="251" font-family="Georgia,serif" font-style="italic" font-size="12" fill="#D95C28" text-anchor="middle">acción</text>
         </g>
-        <!-- violeta -->
         <g transform="rotate(2,90,295)" filter="url(#sh2)">
           <rect x="14" y="228" width="148" height="140" rx="3" fill="#7048B0"/>
           <path d="M162,368 L142,368 L162,348 Z" fill="#5530A0"/>
@@ -306,186 +253,184 @@ footer p{font-size:12px;color:rgba(245,240,232,0.25)}
   </div>
   <div class="ticker-wrap">
     <div class="ticker-inner">
-      <span>entender</span><span class="acc">·</span><span>ordenar</span><span class="acc">·</span><span>estructurar</span><span class="acc">·</span><span>accionar</span><span class="acc">·</span><span>acompañar</span><span class="acc">·</span>
-      <span>entender</span><span class="acc">·</span><span>ordenar</span><span class="acc">·</span><span>estructurar</span><span class="acc">·</span><span>accionar</span><span class="acc">·</span><span>acompañar</span><span class="acc">·</span>
+      <span>entender</span><span class="acc">·</span><span>escuchar</span><span class="acc">·</span><span>mapear</span><span class="acc">·</span><span>accionar</span><span class="acc">·</span><span>acompañar</span><span class="acc">·</span>
+      <span>entender</span><span class="acc">·</span><span>escuchar</span><span class="acc">·</span><span>mapear</span><span class="acc">·</span><span>accionar</span><span class="acc">·</span><span>acompañar</span><span class="acc">·</span>
     </div>
   </div>
 </section>
 
-<!-- BAND -->
 <div class="band">
   <div class="band-inner">
-    <span>ideas con dirección</span><span class="dot">✦</span><span>menos caos</span><span class="dot">✦</span><span>más claridad</span><span class="dot">✦</span><span>mejores decisiones</span><span class="dot">✦</span>
-    <span>ideas con dirección</span><span class="dot">✦</span><span>menos caos</span><span class="dot">✦</span><span>más claridad</span><span class="dot">✦</span><span>mejores decisiones</span><span class="dot">✦</span>
+    <span>ideas con dirección</span><span class="dot">✦</span><span>menos caos</span><span class="dot">✦</span><span>más foco</span><span class="dot">✦</span><span>próximos pasos posibles</span><span class="dot">✦</span>
+    <span>ideas con dirección</span><span class="dot">✦</span><span>menos caos</span><span class="dot">✦</span><span>más foco</span><span class="dot">✦</span><span>próximos pasos posibles</span><span class="dot">✦</span>
   </div>
 </div>
 
-<!-- QUÉ ES -->
+<!-- 1. QUÉ ES BRUMA -->
 <section class="about" id="about">
   <div class="about-inner rv">
-    <div class="about-left">
+    <div>
       <div class="s-tag s-tag-muted">qué es bruma</div>
-      <h2 class="s-h2-dark" style="font-size:clamp(34px,7vw,58px);margin-bottom:32px">Un espacio<br>para pensar<br><em>en voz alta.</em></h2>
-      <div class="about-nums">
-        <div class="num-item"><span>5</span><p>pasos de proceso</p></div>
-        <div class="num-item"><span>1:1</span><p>sesión estratégica inicial</p></div>
+      <h2 class="s-h2-dark" style="font-size:clamp(34px,7vw,58px);margin-bottom:28px">Un espacio<br>para pensar<br><em>en voz alta.</em></h2>
+      <div class="img-nums">
+        <div class="num-item"><span style="color:var(--violet)">1:1</span><p>sesión de trabajo</p></div>
+        <div class="num-item"><span style="color:var(--orange)">5</span><p>pasos de proceso</p></div>
       </div>
     </div>
-    <div class="about-right" style="margin-top:40px">
-      <div class="about-text">
-        <p>Trabajamos con personas que tienen ideas, proyectos que necesitan estructura, negocios que arrancaron con energía y se trabaron, emprendimientos que crecieron sin orden y necesitan redefinir cómo funcionan.</p>
-        <p>Ayudamos a pensar, organizar y encontrar el próximo paso posible.</p>
-      </div>
-      <div class="about-quote">
+    <div>
+      <p style="font-size:17px;color:#5A4A3E;font-weight:300;line-height:1.85;margin-bottom:28px">BRUMA es un espacio de trabajo 1:1 para pensar tu proyecto con alguien que escucha, mapea y ayuda a convertir lo disperso en próximos pasos concretos.</p>
+      <p style="font-size:17px;color:#5A4A3E;font-weight:300;line-height:1.85">Trabajamos con personas que tienen ideas, proyectos o emprendimientos — en cualquier etapa, con cualquier nivel de caos.</p>
+      <div class="about-quote-block">
         <p>El desorden no es el problema. Es el punto de partida.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 2. SESIÓN INICIAL + PROCESO -->
+<section class="sesion" id="sesion">
+  <div class="rv">
+    <div class="s-tag">sesión inicial bruma</div>
+    <h2 class="s-h2" style="font-size:clamp(32px,7vw,56px);margin-bottom:12px">Un encuentro 1:1<br>para <em>empezar a ver.</em></h2>
+    <p style="font-size:15px;color:rgba(245,240,232,0.45);font-weight:300;line-height:1.8;max-width:520px;margin-bottom:8px">Escuchamos tu proyecto, mapeamos el momento y detectamos qué necesita hoy para moverse.</p>
+    <div class="sesion-steps rv">
+      <div class="sesion-step">
+        <div class="step-n">01</div>
+        <div><div class="step-bar"></div><p class="step-name">Escuchamos</p><p class="step-desc">Todo. Sin apuro, sin juicio. El proyecto, el momento, lo que trabó.</p></div>
+      </div>
+      <div class="sesion-step">
+        <div class="step-n">02</div>
+        <div><div class="step-bar"></div><p class="step-name">Mapeamos</p><p class="step-desc">Le damos forma a lo disperso. Encontramos dónde está el nudo real.</p></div>
+      </div>
+      <div class="sesion-step">
+        <div class="step-n">03</div>
+        <div><div class="step-bar"></div><p class="step-name">Detectamos</p><p class="step-desc">Los bloqueos concretos que frenan el avance, aunque no siempre sean visibles.</p></div>
+      </div>
+      <div class="sesion-step">
+        <div class="step-n">04</div>
+        <div><div class="step-bar"></div><p class="step-name">Definimos</p><p class="step-desc">Próximos pasos posibles y reales. Sin sobrecargar, sin prometer lo imposible.</p></div>
+      </div>
+      <div class="sesion-step">
+        <div class="step-n">05</div>
+        <div><div class="step-bar"></div><p class="step-name">Sugerimos</p><p class="step-desc">Un camino de trabajo según lo que el proyecto realmente necesita.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- IMAGEN -->
-<section style="padding:0;background:var(--cream2)" class="img-section">
+<section class="img-section">
   <div class="img-section-inner rv">
     <div class="img-text">
       <div class="s-tag s-tag-muted">así trabajamos</div>
       <h3>Pensamos juntos.<br><em>En tiempo real.</em></h3>
-      <p>Cada sesión es un espacio de trabajo concreto. Escuchamos, mapeamos, ordenamos y definimos juntos cuál es el próximo paso posible.</p>
-      <div class="img-nums">
-        <div class="num-item"><span style="color:var(--violet)">1:1</span><p>encuentros de trabajo</p></div>
+      <p>Cada sesión es un espacio de trabajo concreto. No hay fórmulas ni plantillas — hay una conversación que mueve.</p>
+      <div class="img-nums" style="margin-top:24px">
+        <div class="num-item"><span style="color:var(--violet)">1:1</span><p>encuentro de trabajo</p></div>
         <div class="num-item"><span style="color:var(--orange)">100%</span><p>orientado a tu proyecto</p></div>
       </div>
     </div>
     <div class="img-photo">
       <img src="/foto-sesion.jpg" alt="Sesión de trabajo BRUMA"/>
       <div class="img-caption">
-        <p>"menos caos, más claridad, mejores decisiones"</p>
+        <p>"menos caos, más foco, próximos pasos posibles"</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SESIÓN INICIAL -->
-<section class="sesion" id="sesion">
+<!-- 3. CAMINOS -->
+<section class="paths-section" id="paths">
   <div class="rv">
-    <div class="sesion-grid">
-      <div>
-        <div class="s-tag">cómo se entra a bruma</div>
-        <h2 class="s-h2" style="font-size:clamp(32px,7vw,56px)">Sesión<br>inicial <em>BRUMA.</em></h2>
-        <p class="sesion-desc">Un encuentro 1:1 para ordenar ideas, entender el momento del proyecto y detectar qué necesita hoy para avanzar.</p>
-      </div>
-      <div class="sesion-right">
-        <p><strong>De la sesión te llevás:</strong></p>
-        <ul class="sesion-lista">
-          <li>Una mirada más clara sobre tu proyecto</li>
-          <li>Orden de prioridades</li>
-          <li>Detección de bloqueos o necesidades</li>
-          <li>Posibles próximos pasos concretos</li>
-          <li>Una dirección más nítida para avanzar</li>
-        </ul>
-        <p>Y a partir de ahí, si el proyecto lo necesita, definimos juntos por dónde seguir.</p>
-      </div>
-    </div>
+    <div class="s-tag">caminos de trabajo</div>
+    <h2 class="s-h2" style="font-size:clamp(32px,7vw,56px);margin-bottom:12px">Según lo que<br><em>necesite tu proyecto.</em></h2>
+    <p style="font-size:15px;color:rgba(245,240,232,0.45);font-weight:300;line-height:1.8;max-width:480px;margin-bottom:36px">Después de la sesión inicial, si el proyecto lo pide, seguimos trabajando por uno de estos caminos.</p>
     <div class="paths">
       <div class="path-card">
         <span class="path-icon">🌱</span>
-        <div><p class="path-name">IDEA</p><p class="path-desc">Para transformar una idea en un proyecto posible. Cuando tenés algo en la cabeza que todavía no bajó a tierra.</p></div>
+        <div>
+          <p class="path-name">IDEA</p>
+          <p class="path-desc">Cuando tenés algo en la cabeza que todavía no tomó forma. Trabajamos para que esa idea se vuelva un proyecto posible.</p>
+        </div>
       </div>
       <div class="path-card">
         <span class="path-icon">🧩</span>
-        <div><p class="path-name">ESTRUCTURA</p><p class="path-desc">Para ordenar y darle coherencia a un emprendimiento que ya existe pero creció sin estructura.</p></div>
+        <div>
+          <p class="path-name">ESTRUCTURA</p>
+          <p class="path-desc">Para proyectos que existen pero crecieron sin orden. Les damos coherencia y una lógica que funcione.</p>
+        </div>
       </div>
       <div class="path-card">
         <span class="path-icon">⚡</span>
-        <div><p class="path-name">DESTRABE</p><p class="path-desc">Para proyectos con bloqueos concretos que necesitan claridad para volver a moverse.</p></div>
+        <div>
+          <p class="path-name">DESTRABE</p>
+          <p class="path-desc">Para cuando algo concreto frena todo lo demás. Lo identificamos, lo trabajamos y el proyecto vuelve a moverse.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SITUACIONES -->
-<section class="services" id="services">
-  <div class="rv">
-    <div class="s-tag">en qué trabajamos</div>
-    <h2 class="s-h2" style="font-size:clamp(34px,8vw,68px)">Situaciones<br><em>reales.</em></h2>
-    <p class="s-intro">No trabajamos con "clientes". Trabajamos con proyectos en movimiento, ideas que necesitan forma y problemas que necesitan dirección.</p>
-    <div class="s-list">
-      <div class="s-item">
-        <span class="s-item-num">01</span>
-        <span class="s-item-name">Demasiadas ideas, ninguna dirección</span>
-        <span class="s-item-desc">Cuando la cabeza va a mil y nada termina de aterrizar. Ordenamos el mapa y definimos por dónde empezar.</span>
-        <span class="s-item-pill">claridad</span>
-      </div>
-      <div class="s-item">
-        <span class="s-item-num">02</span>
-        <span class="s-item-name">Proyectos que crecieron sin estructura</span>
-        <span class="s-item-desc">Emprendimientos que arrancaron bien pero hoy funcionan de manera desordenada. Les damos coherencia y organización.</span>
-        <span class="s-item-pill">estructura</span>
-      </div>
-      <div class="s-item">
-        <span class="s-item-num">03</span>
-        <span class="s-item-name">Algo está trabando el avance</span>
-        <span class="s-item-desc">Un bloqueo, una decisión pendiente, un problema sin resolver. Lo identificamos y trabajamos sobre eso.</span>
-        <span class="s-item-pill">destrabe</span>
-      </div>
-      <div class="s-item">
-        <span class="s-item-num">04</span>
-        <span class="s-item-name">Una idea que todavía no es un proyecto</span>
-        <span class="s-item-desc">Algo que existe en la cabeza pero no tiene forma concreta todavía. Ayudamos a transformarla en algo posible.</span>
-        <span class="s-item-pill">dirección</span>
-      </div>
-    </div>
-    <div class="s-footer rv">
-      <p>BRUMA escucha una idea, proyecto o problema y ayuda a transformarlo en <em>dirección, estructura y próximos pasos posibles.</em></p>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESO -->
-<section class="method" id="method">
-  <div class="rv">
-    <div class="s-tag s-tag-muted">cómo trabajamos</div>
-    <h2 class="s-h2-dark" style="font-size:clamp(34px,8vw,68px)">Cómo<br><em>trabajamos.</em></h2>
-    <p class="method-sub">Un recorrido que se adapta a donde está el proyecto y adónde necesita ir.</p>
-    <div class="m-steps">
-      <div class="m-step"><div class="m-num">01</div><div class="m-content"><div class="m-bar"></div><p class="m-name">Entender</p><p class="m-desc">Escuchamos todo. La idea, el contexto, el momento, los bloqueos. Sin apuro, sin juicio.</p></div></div>
-      <div class="m-step"><div class="m-num">02</div><div class="m-content"><div class="m-bar"></div><p class="m-name">Ordenar</p><p class="m-desc">Le damos estructura a lo que estaba disperso. Mapeamos el proyecto y encontramos dónde está el nudo.</p></div></div>
-      <div class="m-step"><div class="m-num">03</div><div class="m-content"><div class="m-bar"></div><p class="m-name">Diseñar</p><p class="m-desc">Trazamos un recorrido posible. No un plan perfecto: una dirección concreta y adaptable.</p></div></div>
-      <div class="m-step"><div class="m-num">04</div><div class="m-content"><div class="m-bar"></div><p class="m-name">Accionar</p><p class="m-desc">Pasamos de las ideas a las decisiones concretas. Qué hacer primero, cómo hacerlo, con qué.</p></div></div>
-      <div class="m-step"><div class="m-num">05</div><div class="m-content"><div class="m-bar"></div><p class="m-name">Acompañar</p><p class="m-desc">No desaparecemos. Seguimos en el proceso, revisando, ajustando y sosteniendo junto a vos.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ¿TE SUENA? -->
+<!-- 4. PARA QUIÉN -->
 <section class="forwhom" id="forwhom">
-  <div class="fw-bg" style="position:absolute;top:50%;right:-200px;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;border:1px solid rgba(96,64,168,0.12);pointer-events:none"></div>
-  <div class="rv" style="position:relative">
-    <div class="fw-tag s-tag"><span style="width:20px;height:1px;background:var(--orange);display:inline-block;flex-shrink:0"></span>para quién es bruma</div>
-    <h2 class="s-h2" style="font-size:clamp(34px,8vw,68px)">¿Te suena<br><em>algo de esto?</em></h2>
-    <p class="fw-sub">No hace falta tener todo claro para arrancar. BRUMA es para los que están en el medio de algo.</p>
+  <div class="rv">
+    <div class="s-tag">para quién es bruma</div>
+    <h2 class="s-h2" style="font-size:clamp(34px,8vw,68px);margin-bottom:16px">¿Estás en alguno<br>de estos <em>momentos?</em></h2>
+    <p style="font-size:15px;color:rgba(245,240,232,0.45);font-weight:300;line-height:1.8;max-width:520px;margin-bottom:36px">No hace falta tener todo claro. Solo tener algo que quieras mover.</p>
     <div class="fw-cards">
-      <div class="fw-card on"><span class="fw-card-mark">🌀</span><div><p class="fw-card-name">Tenés muchas ideas y ninguna dirección concreta</p><p class="fw-card-desc">Tu cabeza va a mil pero nada termina de tomar forma real.</p></div></div>
-      <div class="fw-card"><span class="fw-card-mark">📦</span><div><p class="fw-card-name">Tu proyecto funciona, pero todo está desordenado</p><p class="fw-card-desc">Creciste sin estructura y hoy eso está frenando el avance.</p></div></div>
-      <div class="fw-card"><span class="fw-card-mark">⚡</span><div><p class="fw-card-name">Hay un problema concreto trabando el avance</p><p class="fw-card-desc">Algo específico que no se resuelve y bloquea todo lo demás.</p></div></div>
-      <div class="fw-card"><span class="fw-card-mark">🔀</span><div><p class="fw-card-name">Hay demasiadas decisiones pendientes</p><p class="fw-card-desc">No sabés por dónde empezar y todo parece urgente al mismo tiempo.</p></div></div>
-      <div class="fw-card"><span class="fw-card-mark">🎯</span><div><p class="fw-card-name">Tu idea cambió y necesitás redefinir dirección</p><p class="fw-card-desc">Lo que arrancaste ya no es lo mismo y necesitás reconectar con el rumbo.</p></div></div>
+      <div class="fw-card on">
+        <span class="fw-card-mark">🌀</span>
+        <div><p class="fw-card-name">Tenés muchas ideas</p><p class="fw-card-desc">y no sabés cuál priorizar.</p></div>
+      </div>
+      <div class="fw-card">
+        <span class="fw-card-mark">🌱</span>
+        <div><p class="fw-card-name">Querés empezar algo</p><p class="fw-card-desc">pero no encontrás cómo bajarlo a tierra.</p></div>
+      </div>
+      <div class="fw-card">
+        <span class="fw-card-mark">📦</span>
+        <div><p class="fw-card-name">Tu proyecto ya existe</p><p class="fw-card-desc">pero creció desordenado.</p></div>
+      </div>
+      <div class="fw-card">
+        <span class="fw-card-mark">⚡</span>
+        <div><p class="fw-card-name">Hay algo trabando el avance</p><p class="fw-card-desc">y no lográs detectar qué.</p></div>
+      </div>
+      <div class="fw-card">
+        <span class="fw-card-mark">🔀</span>
+        <div><p class="fw-card-name">Tomar decisiones te abruma</p><p class="fw-card-desc">porque todo parece urgente al mismo tiempo.</p></div>
+      </div>
+      <div class="fw-card">
+        <span class="fw-card-mark">🎯</span>
+        <div><p class="fw-card-name">Tu idea cambió</p><p class="fw-card-desc">y necesitás redefinir el rumbo.</p></div>
+      </div>
+    </div>
+    <div class="pills-block">
+      <p class="pills-label">Tipos de proyectos con los que trabajamos</p>
+      <div class="pills">
+        <span class="pill">marcas personales</span>
+        <span class="pill">emprendimientos</span>
+        <span class="pill">proyectos creativos</span>
+        <span class="pill">productos</span>
+        <span class="pill">servicios</span>
+        <span class="pill pill-v">ideas en etapa inicial</span>
+        <span class="pill pill-o">proyectos ya en funcionamiento</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- 5. CTA -->
 <section class="cta" id="contact">
   <div class="cta-inner rv">
-    <div class="cta-tag">empecemos a ordenarlo</div>
-    <h2 style="font-size:clamp(40px,10vw,96px)">Traé el<br>proyecto<br><em>como está.</em></h2>
-    <p class="cta-desc">Una primera conversación de trabajo, sin rodeos. Para entender dónde está el proyecto hoy y qué necesita para avanzar.</p>
+    <div class="cta-tag">empecemos</div>
+    <h2>Traé el proyecto<br><em>como está.</em></h2>
+    <p class="cta-desc">Una primera conversación de trabajo. Sin rodeos, sin fórmulas. Para entender qué necesita hoy.</p>
     <a href="https://wa.me/message/VYWY3G5GTYU3D1" class="btn-dark">Escribinos por WhatsApp →</a>
     <p class="cta-mail">También por mail · bruma.labstudio@gmail.com</p>
   </div>
 </section>
 
 <footer>
-  <span class="f-logo">bruma <em>lab</em></span>
+  <div class="f-logo"><img src="/logo-bruma.svg" alt="BRUMA lab"/></div>
   <p>© 2026 BRUMA · Buenos Aires, Argentina · @brumalab.ar</p>
 </footer>
 
